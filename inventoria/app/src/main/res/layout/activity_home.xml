@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.editor.HomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/foto_barang"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10px"
+            android:layout_marginLeft="260px"
+            android:layout_marginBottom="50px"
+            android:background="#16000000" />
+
+
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:textColor="#212121"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Id Supplier : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/id_supplier"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textColor="#727272"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:textColor="#212121"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Nama Barang : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/nama_barang"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textColor="#727272"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:textColor="#212121"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Kemasan : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/kemasan"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textColor="#727272"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:textColor="#212121"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Merk : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/merk"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textColor="#727272"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:textColor="#212121"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Jenis : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/jenis"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textColor="#727272"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:textColor="#212121"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Stok : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/stok"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textColor="#727272"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:textColor="#212121"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Harga : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/harga"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textColor="#727272"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:textColor="#212121"
+            android:layout_marginBottom="50px"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Terjual : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/terjual"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textColor="#727272"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/content_simpan"
+            android:gravity="center|bottom"
+            android:layout_weight="1"
+            android:weightSum="1.0"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_marginBottom="10dp">
+
+            <Button
+
+                android:id="@+id/simpan"
+                android:text="Simpan"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#fff"
+                android:background="@drawable/rc"
+                android:layout_width="0dip" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/content_update"
+            android:visibility="gone"
+            android:gravity="center|bottom"
+            android:layout_weight="1"
+            android:weightSum="1.0"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_marginBottom="10dp">
+
+
+
+            <Button
+                android:id="@+id/update"
+                android:text="Beli"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#fff"
+                android:background="@drawable/rc"
+                android:layout_width="0dip" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+
+
