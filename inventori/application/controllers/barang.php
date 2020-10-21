@@ -141,7 +141,7 @@ class Barang extends CI_Controller {
             'kemasan' => set_value('kemasan', $row->kemasan),
             'jenis' => set_value('jenis', $row->jenis),
             'merk' => set_value('merk', $row->merk),
-            'id_supplier' => set_value('id_supplier', $row->nama_supplier),
+            'id_supplier' => set_value('id_supplier', $row->id_supplier),
 
             );
             //menampilkan form edit data
