@@ -64,4 +64,3 @@ class Gudang1 extends CI_Controller {
 
     
 }
-    ?>

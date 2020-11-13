@@ -5,12 +5,12 @@ if (!defined('BASEPATH'))
 
 class M_detail extends CI_Model
 {
-	//deklarasi tabel
-	public $table = 'barang';
+    //deklarasi tabel
+    public $table = 'barang';
     public $id = 'id_barang';
     public $terjual = 'terjual';
     public $order = 'DESC';
-    
+
     function get_by_id($id)
     {
         $this->db->select('*');

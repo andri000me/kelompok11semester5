@@ -6,36 +6,38 @@ if (!defined('BASEPATH'))
 
 class M_barang extends CI_Model
 {
-	//deklarasi tabel
-	public $table = 'barang';
+    //deklarasi tabel
+    public $table = 'barang';
     public $id = 'id_barang';
     public $terjual = 'terjual';
-	public $order = 'DESC';
-	
-	//untuk tampilan home
+    public $order = 'DESC';
+
+    //untuk tampilan home
 
 
-	//menghitung rows untuk pencarian dan dashboard
-	public function total_rows() { //untuk memunculkan record
+    //menghitung rows untuk pencarian dan dashboard
+    public function total_rows()
+    { //untuk memunculkan record
         $this->db->like('id_barang');
-	$this->db->or_like('nama_barang');
-	$this->db->or_like('stok');
-	$this->db->or_like('harga');
-	$this->db->or_like('merk');
-	$this->db->from($this->table);
+        $this->db->or_like('nama_barang');
+        $this->db->or_like('stok');
+        $this->db->or_like('harga');
+        $this->db->or_like('merk');
+        $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
     // untuk limit halaman dan pencarian
-    function get_limit_data() { //membubat seacrh dan pagination
+    function get_limit_data()
+    { //membubat seacrh dan pagination
         $this->db->order_by($this->terjual, $this->order);
-    $this->db->or_like('nama_barang');
-    $this->db->or_like('jenis');
-    $this->db->select('*');
-    $this->db->from('barang');
-    $this->db->join('supplier', 'supplier.id_supplier=barang.id_supplier');
-    $where = "barang.del='0'";
-    $this->db->where($where);
+        $this->db->or_like('nama_barang');
+        $this->db->or_like('jenis');
+        $this->db->select('*');
+        $this->db->from('barang');
+        $this->db->join('supplier', 'supplier.id_supplier=barang.id_supplier');
+        $where = "barang.del='0'";
+        $this->db->where($where);
         return $this->db->get()->result();
     }
 
@@ -57,10 +59,10 @@ class M_barang extends CI_Model
     {
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
-	}
-	
-	 // memanggil id yang akan digunakan untuk edit dan delete
-	function get_by_id($id)
+    }
+
+    // memanggil id yang akan digunakan untuk edit dan delete
+    function get_by_id($id)
     {
         $this->db->select('*');
         $this->db->from('barang');
@@ -79,16 +81,17 @@ class M_barang extends CI_Model
 
 
 
-  //API API API
-    public function getbarang($id=null){
-        
-        if($id==null) {
+    //API API API
+    public function getbarang($id = null)
+    {
+
+        if ($id == null) {
 
             $this->db->select('*');
             $this->db->from('barang');
-      
+
             return $this->db->get()->result();
-        }else{
+        } else {
             $this->db->select('*');
             $this->db->from('barang');
 
@@ -96,24 +99,26 @@ class M_barang extends CI_Model
             $this->db->where($where);
             return $this->db->get()->result();
         }
-        
     }
 
-   public function deletebarang($id){
-        $this->db->delete('barang', ['id_barang' =>$id]);
+    public function deletebarang($id)
+    {
+        $this->db->delete('barang', ['id_barang' => $id]);
         return $this->db->affected_rows();
     }
 
-    public function createbarang($data){
+    public function createbarang($data)
+    {
 
         $this->db->insert('barang', $data);
         return $this->db->affected_rows();
     }
 
 
-    public function updatebarang($data, $id){
+    public function updatebarang($data, $id)
+    {
 
-        $this->db->update('barang', $data, ['id_barang' =>$id]);
+        $this->db->update('barang', $data, ['id_barang' => $id]);
         return $this->db->affected_rows();
     }
 }

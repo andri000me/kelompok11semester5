@@ -1,25 +1,28 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');  
- 
-class Home extends CI_Controller { 
+defined('BASEPATH') or exit('No direct script access allowed');
 
-	
-	//load library, helper, dan model
-	function __construct(){  
-		parent::__construct(); 
-		$this->load->helper('url'); 
-		$this->load->helper('html'); 
-        $this->load->helper(array('form', 'url')); 
-		$this->load->model('m_home');
-	}
- //menampilkan barang pada home
-	public function index(){	
+class Home extends CI_Controller
+{
+
+
+    //load library, helper, dan model
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('url');
+        $this->load->helper('html');
+        $this->load->helper(array('form', 'url'));
+        $this->load->model('m_home');
+    }
+    //menampilkan barang pada home
+    public function index()
+    {
 
         $this->load->view('v_header');
-        
-       
-        
-		$q = urldecode($this->input->get('q', TRUE)); //search 
+
+
+
+        $q = urldecode($this->input->get('q', TRUE)); //search 
         $per_page = intval($this->input->get('per_page')); //membuat halaman baru
         if ($q <> '') {
             $config['base_url'] = base_url() . 'home/?q=' . urlencode($q);
@@ -42,18 +45,19 @@ class Home extends CI_Controller {
             'pagination' => $this->pagination->create_links(),
             'total_rows' => $config['total_rows'],
             'per_page' => $per_page,
-		);
-        $this->load->view('v_home',$data);
+        );
+        $this->load->view('v_home', $data);
         $this->load->view('v_carousel');
-        $this->load->view('v_home1',$data);
-		$this->load->view('v_footer'); 
-	}
-    
-    public function makanan(){	
+        $this->load->view('v_home1', $data);
+        $this->load->view('v_footer');
+    }
+
+    public function makanan()
+    {
 
         $this->load->view('v_header');
-        
-		$q = urldecode($this->input->get('q', TRUE)); //search 
+
+        $q = urldecode($this->input->get('q', TRUE)); //search 
         $per_page = intval($this->input->get('per_page')); //membuat halaman baru
         if ($q <> '') {
             $config['base_url'] = base_url() . 'home/makanan/?q=' . urlencode($q);
@@ -76,21 +80,19 @@ class Home extends CI_Controller {
             'pagination' => $this->pagination->create_links(),
             'total_rows' => $config['total_rows'],
             'per_page' => $per_page,
-		);
-        $this->load->view('v_home',$data);
+        );
+        $this->load->view('v_home', $data);
         $this->load->view('v_carousel');
-        $this->load->view('v_home1',$data);
-		$this->load->view('v_footer'); 
-
-
-
+        $this->load->view('v_home1', $data);
+        $this->load->view('v_footer');
     }
-    
-    public function minuman(){	
+
+    public function minuman()
+    {
 
         $this->load->view('v_header');
-        
-		$q = urldecode($this->input->get('q', TRUE)); //search 
+
+        $q = urldecode($this->input->get('q', TRUE)); //search 
         $per_page = intval($this->input->get('per_page')); //membuat halaman baru
         if ($q <> '') {
             $config['base_url'] = base_url() . 'home/minuman/?q=' . urlencode($q);
@@ -113,21 +115,19 @@ class Home extends CI_Controller {
             'pagination' => $this->pagination->create_links(),
             'total_rows' => $config['total_rows'],
             'per_page' => $per_page,
-		);
-        $this->load->view('v_home',$data);
+        );
+        $this->load->view('v_home', $data);
         $this->load->view('v_carousel');
-        $this->load->view('v_home1',$data);
-		$this->load->view('v_footer'); 
-
-
-
+        $this->load->view('v_home1', $data);
+        $this->load->view('v_footer');
     }
-    
-    public function kecantikan(){	
+
+    public function kecantikan()
+    {
 
         $this->load->view('v_header');
-        
-		$q = urldecode($this->input->get('q', TRUE)); //search 
+
+        $q = urldecode($this->input->get('q', TRUE)); //search 
         $per_page = intval($this->input->get('per_page')); //membuat halaman baru
         if ($q <> '') {
             $config['base_url'] = base_url() . 'home/kecantikan/?q=' . urlencode($q);
@@ -150,21 +150,19 @@ class Home extends CI_Controller {
             'pagination' => $this->pagination->create_links(),
             'total_rows' => $config['total_rows'],
             'per_page' => $per_page,
-		);
-        $this->load->view('v_home',$data);
+        );
+        $this->load->view('v_home', $data);
         $this->load->view('v_carousel');
-        $this->load->view('v_home1',$data);
-		$this->load->view('v_footer'); 
-
-
-
+        $this->load->view('v_home1', $data);
+        $this->load->view('v_footer');
     }
-    
-    public function dapur(){	
+
+    public function dapur()
+    {
 
         $this->load->view('v_header');
-        
-		$q = urldecode($this->input->get('q', TRUE)); //search 
+
+        $q = urldecode($this->input->get('q', TRUE)); //search 
         $per_page = intval($this->input->get('per_page')); //membuat halaman baru
         if ($q <> '') {
             $config['base_url'] = base_url() . 'home/dapur/?q=' . urlencode($q);
@@ -187,21 +185,19 @@ class Home extends CI_Controller {
             'pagination' => $this->pagination->create_links(),
             'total_rows' => $config['total_rows'],
             'per_page' => $per_page,
-		);
-        $this->load->view('v_home',$data);
+        );
+        $this->load->view('v_home', $data);
         $this->load->view('v_carousel');
-        $this->load->view('v_home1',$data);
-		$this->load->view('v_footer'); 
-
-
-
+        $this->load->view('v_home1', $data);
+        $this->load->view('v_footer');
     }
 
-    public function permen(){	
+    public function permen()
+    {
 
         $this->load->view('v_header');
-        
-		$q = urldecode($this->input->get('q', TRUE)); //search 
+
+        $q = urldecode($this->input->get('q', TRUE)); //search 
         $per_page = intval($this->input->get('per_page')); //membuat halaman baru
         if ($q <> '') {
             $config['base_url'] = base_url() . 'home/permen/?q=' . urlencode($q);
@@ -224,14 +220,10 @@ class Home extends CI_Controller {
             'pagination' => $this->pagination->create_links(),
             'total_rows' => $config['total_rows'],
             'per_page' => $per_page,
-		);
-        $this->load->view('v_home',$data);
+        );
+        $this->load->view('v_home', $data);
         $this->load->view('v_carousel');
-        $this->load->view('v_home1',$data);
-		$this->load->view('v_footer'); 
-
-
-
+        $this->load->view('v_home1', $data);
+        $this->load->view('v_footer');
     }
-    
 }

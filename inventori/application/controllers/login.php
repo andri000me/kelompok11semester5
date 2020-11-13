@@ -1,10 +1,11 @@
 <?php
-class Login extends CI_Controller {
+class Login extends CI_Controller
+{
 
     //menampilkan form login dan fungsi login
-    public function index() 
+    public function index()
     {
-        
+
         if ($this->input->post() == NULL) {
             $this->load->view('v_header');
             $this->load->view('v_login');
@@ -24,19 +25,18 @@ class Login extends CI_Controller {
                 }
                 redirect('home');
             } else {
-                ?>
+?>
                 <script type="text/javascript">
                     alert('Username dan password kamu salah !');
-                    window.location="<?php echo base_url('login'); ?>";
+                    window.location = "<?php echo base_url('login'); ?>";
                 </script>
-                <?php
+<?php
             }
-
         }
     }
 
-        ////fungsi logout
-    function logout() 
+    ////fungsi logout
+    function logout()
     {
         //session dihapus
         $this->session->unset_userdata('id_user');

@@ -5,27 +5,29 @@ if (!defined('BASEPATH'))
 
 class M_sales1 extends CI_Model
 {
-	//deklarasi tabel
+    //deklarasi tabel
     public $table = 'user';
     public $id = 'id_user';
-	public $order = 'DESC';
-	
+    public $order = 'DESC';
 
-	//menghitung rows untuk pencarian dan dashboard
-	public function total_rows() {
-    $this->db->or_like('nama');
-    $where = "level='sales' and user.del='1'";
-    $this->db->where($where);
-	$this->db->from($this->table);
+
+    //menghitung rows untuk pencarian dan dashboard
+    public function total_rows()
+    {
+        $this->db->or_like('nama');
+        $where = "level='sales' and user.del='1'";
+        $this->db->where($where);
+        $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
     // untuk limit halaman dan pencarian
-    function get_limit_data() {
+    function get_limit_data()
+    {
         $this->db->order_by($this->id, $this->order);
-	$this->db->or_like('nama');
-    $where = "level='sales' and user.del='1'";
-    $this->db->where($where);
+        $this->db->or_like('nama');
+        $where = "level='sales' and user.del='1'";
+        $this->db->where($where);
         return $this->db->get($this->table)->result();
     }
 
@@ -47,51 +49,54 @@ class M_sales1 extends CI_Model
     {
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
-	}
-	
-	 // memanggil id yang akan digunakan untuk edit dan delete
-	function get_by_id($id)
+    }
+
+    // memanggil id yang akan digunakan untuk edit dan delete
+    function get_by_id($id)
     {
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }
 
-    
+
     //API API API
-    public function getsales($id=null){
-        
-        if($id==null) {
+    public function getsales($id = null)
+    {
+
+        if ($id == null) {
 
             $this->db->select('*');
             $this->db->from('user');
             $where = "level='sales'";
             $this->db->where($where);
             return $this->db->get()->result();
-        }else{
+        } else {
             $this->db->select('*');
             $this->db->from('user');
             $where = "level='sales' and id_user=$id";
             $this->db->where($where);
             return $this->db->get()->result();
         }
-        
     }
 
-   public function deletesales($id){
-        $this->db->delete('user', ['id_user' =>$id]);
+    public function deletesales($id)
+    {
+        $this->db->delete('user', ['id_user' => $id]);
         return $this->db->affected_rows();
     }
 
-    public function createsales($data){
+    public function createsales($data)
+    {
 
         $this->db->insert('user', $data);
         return $this->db->affected_rows();
     }
 
 
-    public function updatesales($data, $id){
+    public function updatesales($data, $id)
+    {
 
-        $this->db->update('user', $data, ['id_user' =>$id]);
+        $this->db->update('user', $data, ['id_user' => $id]);
         return $this->db->affected_rows();
     }
 }
