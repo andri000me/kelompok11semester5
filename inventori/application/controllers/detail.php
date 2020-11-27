@@ -21,6 +21,9 @@ class Detail extends CI_Controller
         //menampilkan header dan sidebar
         $this->load->view('v_header');
         $row = $this->m_detail->get_by_id($id);
+        $diskusi = $this->m_detail->diskusi($id);
+        $rating = $this->m_detail->rating($id);
+        $bintang = $this->m_detail->bintang($id);
         //menampilkan data ke dalam form
         if ($row) {
             $data = array(
@@ -36,6 +39,9 @@ class Detail extends CI_Controller
                 'id_supplier' => set_value('id_supplier', $row->id_supplier),
                 'nama_supplier' => set_value('nama_supplier', $row->nama_supplier),
                 'foto_barang' => set_value('foto_barang', $row->foto_barang),
+                'diskusi_data' => $diskusi,
+                'rating_data' => $rating,
+                'bintang_data' => $bintang,
             );
             //menampilkan form edit data
             $this->load->view('v_detail', $data);

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Jun 2020 pada 09.13
--- Versi server: 10.3.16-MariaDB
--- Versi PHP: 7.3.7
+-- Generation Time: Nov 27, 2020 at 02:51 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `activity`
+-- Table structure for table `activity`
 --
 
 CREATE TABLE `activity` (
@@ -36,7 +35,7 @@ CREATE TABLE `activity` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `activity`
+-- Dumping data for table `activity`
 --
 
 INSERT INTO `activity` (`id_activity`, `tgl_activity`, `keterangan`, `status`) VALUES
@@ -1444,12 +1443,18 @@ INSERT INTO `activity` (`id_activity`, `tgl_activity`, `keterangan`, `status`) V
 (1448, '2020-06-29 14:11:04', 'Tansaksi barang keluar dengan id=105 telah diubah', 0),
 (1449, '2020-06-29 14:11:26', 'Tansaksi barang keluar dengan id=105 telah diubah', 0),
 (1450, '2020-06-29 14:11:40', 'Tansaksi barang keluar dengan id=105 telah diubah', 0),
-(1451, '2020-06-29 14:12:25', 'Transaksi barang keluar dengan id=105 telah dihapus', 0);
+(1451, '2020-06-29 14:12:25', 'Transaksi barang keluar dengan id=105 telah dihapus', 0),
+(1452, '2020-10-05 04:56:51', 'Transaksi barang keluar dengan id=78 telah dihapus', 0),
+(1453, '2020-10-05 04:56:53', 'Transaksi barang keluar dengan id=77 telah dihapus', 0),
+(1454, '2020-10-05 04:56:54', 'Transaksi barang keluar dengan id=61 telah dihapus', 0),
+(1455, '2020-10-14 06:34:36', 'Barang bernama yy telah dihapus', 0),
+(1456, '2020-10-14 06:34:36', 'Barang bernama yy telah diupdate', 0),
+(1457, '2020-11-20 11:46:50', 'Tansaksi barang masuk dengan id=40 telah ditambah', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang`
+-- Table structure for table `barang`
 --
 
 CREATE TABLE `barang` (
@@ -1467,11 +1472,11 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `barang`
+-- Dumping data for table `barang`
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`, `del`) VALUES
-(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 9980, 20, 'barang_1587349533.jpg', 0),
+(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 9981, 20, 'barang_1587349533.jpg', 0),
 (2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 5000, 0, 'barang_1587349541.jpg', 0),
 (3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 5112, 0, 'barang_1587350641.jpg', 0),
 (4, 1, 'BUCKET MOCHACINO 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 4988, 12, 'barang_1587349556.jpg', 0),
@@ -1717,12 +1722,12 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (244, 7, 'YUPI SEET HEART 15 GR', '12 PCS / K', '-', 'PERMEN', 10300, 5000, 0, 'barang_1592133060.jpg', 0),
 (245, 7, 'YUPI AQUARIUM 15 GR', '12 PCS / K', '-', 'PERMEN', 10300, 5000, 0, 'barang_1587486236.jpg', 0),
 (246, 7, 'YUPI FESTIVE EDITION 400 GR', '6 PCS / K', '-', 'PERMEN', 25000, 5000, 0, 'barang_1592746054.jpg', 0),
-(289, 1, 'yy', 'yy', 'yy', 'yy', 3, 3, 3, 'barang_1592920933.jpg', 1),
+(289, 1, 'yya', 'yy', 'yy', 'yy', 3, 3, 3, 'barang_1592920933.jpg', 1),
 (292, 8, 'yuyu', 'kotak', 'yuyu', 'makanan', 12000, 12, 2, 'barang_1592921430.jpg', 0),
 (293, 7, 'qw', 'ww', 'ww', 'ww', 1, 1, 0, 'gg.jpg', 0);
 
 --
--- Trigger `barang`
+-- Triggers `barang`
 --
 DELIMITER $$
 CREATE TRIGGER `delete barang` AFTER UPDATE ON `barang` FOR EACH ROW BEGIN
@@ -1753,7 +1758,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `carousel`
+-- Table structure for table `carousel`
 --
 
 CREATE TABLE `carousel` (
@@ -1764,7 +1769,7 @@ CREATE TABLE `carousel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `carousel`
+-- Dumping data for table `carousel`
 --
 
 INSERT INTO `carousel` (`id_carousel`, `judul`, `isi`, `gambar`) VALUES
@@ -1782,7 +1787,7 @@ INSERT INTO `carousel` (`id_carousel`, `judul`, `isi`, `gambar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cicil`
+-- Table structure for table `cicil`
 --
 
 CREATE TABLE `cicil` (
@@ -1797,7 +1802,7 @@ CREATE TABLE `cicil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `cicil`
+-- Dumping data for table `cicil`
 --
 
 INSERT INTO `cicil` (`id_cicil`, `id_keluar`, `tgl_cicil`, `periode`, `jumlah_cicil`, `foto_cicil`, `status`, `del`) VALUES
@@ -1819,7 +1824,7 @@ INSERT INTO `cicil` (`id_cicil`, `id_keluar`, `tgl_cicil`, `periode`, `jumlah_ci
 (43, 75, '2020-06-27 05:29:42', 3, 3, 'cicil_1593210582.jpg', 1, 1);
 
 --
--- Trigger `cicil`
+-- Triggers `cicil`
 --
 DELIMITER $$
 CREATE TRIGGER `cicil1` AFTER UPDATE ON `cicil` FOR EACH ROW BEGIN
@@ -1834,7 +1839,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_keluar`
+-- Table structure for table `detail_keluar`
 --
 
 CREATE TABLE `detail_keluar` (
@@ -1846,7 +1851,7 @@ CREATE TABLE `detail_keluar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detail_keluar`
+-- Dumping data for table `detail_keluar`
 --
 
 INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `diskon`, `status`) VALUES
@@ -1936,7 +1941,7 @@ INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `diskon`, `
 (1, 105, 10, 0, 2);
 
 --
--- Trigger `detail_keluar`
+-- Triggers `detail_keluar`
 --
 DELIMITER $$
 CREATE TRIGGER `editstok` AFTER UPDATE ON `detail_keluar` FOR EACH ROW BEGIN
@@ -2043,7 +2048,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_masuk`
+-- Table structure for table `detail_masuk`
 --
 
 CREATE TABLE `detail_masuk` (
@@ -2054,7 +2059,7 @@ CREATE TABLE `detail_masuk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `detail_masuk`
+-- Dumping data for table `detail_masuk`
 --
 
 INSERT INTO `detail_masuk` (`id_barang`, `id_masuk`, `qty_masuk`, `diskon`) VALUES
@@ -2073,10 +2078,11 @@ INSERT INTO `detail_masuk` (`id_barang`, `id_masuk`, `qty_masuk`, `diskon`) VALU
 (1, 36, 1, 0),
 (1, 37, 2, 0),
 (2, 38, 2, 2),
-(1, 39, 1, 1);
+(1, 39, 1, 1),
+(1, 40, 1, 1);
 
 --
--- Trigger `detail_masuk`
+-- Triggers `detail_masuk`
 --
 DELIMITER $$
 CREATE TRIGGER `editstok1` AFTER UPDATE ON `detail_masuk` FOR EACH ROW BEGIN
@@ -2132,7 +2138,29 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `keluar`
+-- Table structure for table `diskusi`
+--
+
+CREATE TABLE `diskusi` (
+  `id_diskusi` int(11) NOT NULL,
+  `id_barang` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `tgl_diskusi` date NOT NULL DEFAULT current_timestamp(),
+  `isi_diskusi` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `diskusi`
+--
+
+INSERT INTO `diskusi` (`id_diskusi`, `id_barang`, `id_user`, `tgl_diskusi`, `isi_diskusi`) VALUES
+(1, 1, 9, '2020-11-27', 'halo'),
+(2, 1, 8, '2020-11-27', 'hei');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keluar`
 --
 
 CREATE TABLE `keluar` (
@@ -2146,7 +2174,7 @@ CREATE TABLE `keluar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `keluar`
+-- Dumping data for table `keluar`
 --
 
 INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `foto_keluar`, `status`, `del`) VALUES
@@ -2189,7 +2217,7 @@ INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `fot
 (57, 1, '0000-00-00 00:00:00', 80, NULL, 0, 0),
 (58, 2, '2020-06-20 07:54:57', 2497500, 'bayar_1592614505.jpg', 0, 0),
 (60, 2, '2020-06-20 07:55:20', 225000, 'bayar_1592614526.jpg', 0, 0),
-(61, 3, '2020-06-20 05:36:56', 562500, 'bayar_1592649490', 0, 0),
+(61, 3, '2020-06-20 05:36:56', 562500, 'bayar_1592649490', 0, 1),
 (62, 3, '2020-06-20 05:38:42', 247500, NULL, 0, 0),
 (63, 3, '2020-06-20 05:38:55', 270000, NULL, 0, 0),
 (64, 3, '2020-06-20 05:40:15', 22500, NULL, 0, 0),
@@ -2202,8 +2230,8 @@ INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `fot
 (72, 3, '2020-06-26 12:54:37', 270000, NULL, 1, 0),
 (74, 3, '2020-06-26 01:02:29', 270000, NULL, 2, 0),
 (75, 3, '2020-06-26 02:08:14', 270000, NULL, 2, 0),
-(77, 1, '2020-06-27 12:35:04', 270000, 'bayar_1593236108', 0, 0),
-(78, 1, '2020-06-27 12:37:05', 270000, 'bayar_1593236228', 0, 0),
+(77, 1, '2020-06-27 12:35:04', 270000, 'bayar_1593236108', 0, 1),
+(78, 1, '2020-06-27 12:37:05', 270000, 'bayar_1593236228', 0, 1),
 (80, 2, '2020-06-29 06:02:45', 22500, NULL, 0, 0),
 (81, 2, '2020-06-29 06:02:52', 22500, NULL, 0, 0),
 (82, 2, '2020-06-29 06:03:00', 270000, NULL, 0, 0),
@@ -2232,7 +2260,7 @@ INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `fot
 (105, 2, '2020-06-29 02:12:44', 225000, NULL, 0, 0);
 
 --
--- Trigger `keluar`
+-- Triggers `keluar`
 --
 DELIMITER $$
 CREATE TRIGGER `hapus keluar` BEFORE DELETE ON `keluar` FOR EACH ROW BEGIN
@@ -2261,7 +2289,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `masuk`
+-- Table structure for table `masuk`
 --
 
 CREATE TABLE `masuk` (
@@ -2273,7 +2301,7 @@ CREATE TABLE `masuk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `masuk`
+-- Dumping data for table `masuk`
 --
 
 INSERT INTO `masuk` (`id_masuk`, `id_supplier`, `tgl_masuk`, `total_masuk`, `del`) VALUES
@@ -2291,10 +2319,11 @@ INSERT INTO `masuk` (`id_masuk`, `id_supplier`, `tgl_masuk`, `total_masuk`, `del
 (36, 1, '2020-06-23 07:17:50', 22500, 1),
 (37, 1, '2020-06-23 07:20:41', 45000, 1),
 (38, 11, '2020-06-29 06:52:29', 22275, 1),
-(39, 11, '2020-06-29 06:53:17', 22275, 1);
+(39, 11, '2020-06-29 06:53:17', 22275, 1),
+(40, 11, '2020-11-20 11:46:47', 22275, 0);
 
 --
--- Trigger `masuk`
+-- Triggers `masuk`
 --
 DELIMITER $$
 CREATE TRIGGER `hapus masuk` BEFORE DELETE ON `masuk` FOR EACH ROW BEGIN
@@ -2323,7 +2352,30 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `supplier`
+-- Table structure for table `rating`
+--
+
+CREATE TABLE `rating` (
+  `id_rating` int(11) NOT NULL,
+  `id_barang` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `tgl_rating` date NOT NULL DEFAULT current_timestamp(),
+  `isi_rating` varchar(100) NOT NULL,
+  `bintang_rating` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rating`
+--
+
+INSERT INTO `rating` (`id_rating`, `id_barang`, `id_user`, `tgl_rating`, `isi_rating`, `bintang_rating`) VALUES
+(1, 1, 1, '2020-11-27', 'bagus', 5),
+(2, 1, 3, '2020-11-27', 'tete', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier`
 --
 
 CREATE TABLE `supplier` (
@@ -2335,7 +2387,7 @@ CREATE TABLE `supplier` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `supplier`
+-- Dumping data for table `supplier`
 --
 
 INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `alamat`, `no_telp`, `del`) VALUES
@@ -2353,7 +2405,7 @@ INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `alamat`, `no_telp`, `de
 (12, 'CV. KAWI', 'Probolinggo', '081236786645', 0);
 
 --
--- Trigger `supplier`
+-- Triggers `supplier`
 --
 DELIMITER $$
 CREATE TRIGGER `delete supplier` BEFORE UPDATE ON `supplier` FOR EACH ROW BEGIN
@@ -2368,7 +2420,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -2387,7 +2439,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `no_telp`, `foto`, `del`) VALUES
@@ -2406,7 +2458,7 @@ INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`,
 (93, 'tri', 'tri', 'b85593ca6abda3f203e0af8239beb228', 'customer', 'tri', '2000-06-06', 'laki-laki', NULL, NULL, 'pp.jpg', 1);
 
 --
--- Trigger `user`
+-- Triggers `user`
 --
 DELIMITER $$
 CREATE TRIGGER `delete user` AFTER UPDATE ON `user` FOR EACH ROW BEGIN
@@ -2423,164 +2475,206 @@ DELIMITER ;
 --
 
 --
--- Indeks untuk tabel `activity`
+-- Indexes for table `activity`
 --
 ALTER TABLE `activity`
   ADD PRIMARY KEY (`id_activity`);
 
 --
--- Indeks untuk tabel `barang`
+-- Indexes for table `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`),
   ADD KEY `fk_berasal` (`id_supplier`);
 
 --
--- Indeks untuk tabel `carousel`
+-- Indexes for table `carousel`
 --
 ALTER TABLE `carousel`
   ADD PRIMARY KEY (`id_carousel`);
 
 --
--- Indeks untuk tabel `cicil`
+-- Indexes for table `cicil`
 --
 ALTER TABLE `cicil`
   ADD PRIMARY KEY (`id_cicil`),
   ADD KEY `id_keluar` (`id_keluar`);
 
 --
--- Indeks untuk tabel `detail_keluar`
+-- Indexes for table `detail_keluar`
 --
 ALTER TABLE `detail_keluar`
   ADD KEY `fk_menyimpan` (`id_barang`),
   ADD KEY `fk_terdapat` (`id_keluar`);
 
 --
--- Indeks untuk tabel `detail_masuk`
+-- Indexes for table `detail_masuk`
 --
 ALTER TABLE `detail_masuk`
   ADD KEY `fk_memiliki` (`id_barang`),
   ADD KEY `fk_mempunyai` (`id_masuk`);
 
 --
--- Indeks untuk tabel `keluar`
+-- Indexes for table `diskusi`
+--
+ALTER TABLE `diskusi`
+  ADD PRIMARY KEY (`id_diskusi`),
+  ADD KEY `id_barang` (`id_barang`),
+  ADD KEY `id_user` (`id_user`);
+
+--
+-- Indexes for table `keluar`
 --
 ALTER TABLE `keluar`
   ADD PRIMARY KEY (`id_keluar`),
   ADD KEY `fk_membeli` (`id_user`);
 
 --
--- Indeks untuk tabel `masuk`
+-- Indexes for table `masuk`
 --
 ALTER TABLE `masuk`
   ADD PRIMARY KEY (`id_masuk`),
   ADD KEY `fk_menyetok` (`id_supplier`);
 
 --
--- Indeks untuk tabel `supplier`
+-- Indexes for table `rating`
+--
+ALTER TABLE `rating`
+  ADD PRIMARY KEY (`id_rating`),
+  ADD KEY `id_barang` (`id_barang`),
+  ADD KEY `id_user` (`id_user`);
+
+--
+-- Indexes for table `supplier`
 --
 ALTER TABLE `supplier`
   ADD PRIMARY KEY (`id_supplier`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `activity`
+-- AUTO_INCREMENT for table `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1452;
+  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1458;
 
 --
--- AUTO_INCREMENT untuk tabel `barang`
+-- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
   MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=294;
 
 --
--- AUTO_INCREMENT untuk tabel `carousel`
+-- AUTO_INCREMENT for table `carousel`
 --
 ALTER TABLE `carousel`
   MODIFY `id_carousel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT untuk tabel `cicil`
+-- AUTO_INCREMENT for table `cicil`
 --
 ALTER TABLE `cicil`
   MODIFY `id_cicil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- AUTO_INCREMENT untuk tabel `keluar`
+-- AUTO_INCREMENT for table `diskusi`
+--
+ALTER TABLE `diskusi`
+  MODIFY `id_diskusi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `keluar`
 --
 ALTER TABLE `keluar`
   MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
--- AUTO_INCREMENT untuk tabel `masuk`
+-- AUTO_INCREMENT for table `masuk`
 --
 ALTER TABLE `masuk`
   MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
--- AUTO_INCREMENT untuk tabel `supplier`
+-- AUTO_INCREMENT for table `rating`
+--
+ALTER TABLE `rating`
+  MODIFY `id_rating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
   MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `barang`
+-- Constraints for table `barang`
 --
 ALTER TABLE `barang`
   ADD CONSTRAINT `fk_berasal` FOREIGN KEY (`id_supplier`) REFERENCES `supplier` (`id_supplier`);
 
 --
--- Ketidakleluasaan untuk tabel `cicil`
+-- Constraints for table `cicil`
 --
 ALTER TABLE `cicil`
   ADD CONSTRAINT `cicil_ibfk_1` FOREIGN KEY (`id_keluar`) REFERENCES `keluar` (`id_keluar`);
 
 --
--- Ketidakleluasaan untuk tabel `detail_keluar`
+-- Constraints for table `detail_keluar`
 --
 ALTER TABLE `detail_keluar`
   ADD CONSTRAINT `fk_menyimpan` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`),
   ADD CONSTRAINT `fk_terdapat` FOREIGN KEY (`id_keluar`) REFERENCES `keluar` (`id_keluar`);
 
 --
--- Ketidakleluasaan untuk tabel `detail_masuk`
+-- Constraints for table `detail_masuk`
 --
 ALTER TABLE `detail_masuk`
   ADD CONSTRAINT `fk_memiliki` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`),
   ADD CONSTRAINT `fk_mempunyai` FOREIGN KEY (`id_masuk`) REFERENCES `masuk` (`id_masuk`);
 
 --
--- Ketidakleluasaan untuk tabel `keluar`
+-- Constraints for table `diskusi`
+--
+ALTER TABLE `diskusi`
+  ADD CONSTRAINT `diskusi_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`),
+  ADD CONSTRAINT `diskusi_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+
+--
+-- Constraints for table `keluar`
 --
 ALTER TABLE `keluar`
   ADD CONSTRAINT `fk_membeli` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
 
 --
--- Ketidakleluasaan untuk tabel `masuk`
+-- Constraints for table `masuk`
 --
 ALTER TABLE `masuk`
   ADD CONSTRAINT `fk_menyetok` FOREIGN KEY (`id_supplier`) REFERENCES `supplier` (`id_supplier`);
+
+--
+-- Constraints for table `rating`
+--
+ALTER TABLE `rating`
+  ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`),
+  ADD CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

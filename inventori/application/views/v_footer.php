@@ -24,10 +24,10 @@
           <dd class="nav-item"><a href="keranjang">Halaman Keranjang</a></dd>
         </dl>
 
-        <dl class="footer-nav">
+        <!-- <dl class="footer-nav">
           <dt class="nav-title">TENTANG DEVELOPER</dt>
           <dd class="nav-item"><a href="tentangdeveloper">Halaman Tentang Developer</a></dd>
-        </dl>
+        </dl> -->
 
 
         <dl class="footer-nav">

@@ -135,7 +135,7 @@
                             <div class="form-group" id="form-transfer">
                               <label>Jumlah Transfer</label><br>
 
-                              <input name="tahun" class="form-control" readonly value="Rp. <?php echo number_format($item['subtotal'], 0, ',', '.'); ?>"></input>
+                              <input name="tahun" class="form-control" readonly value="Rp. <?php echo number_format($this->cart->total(), 0, ',', '.'); ?>"></input>
                             </div>
 
 

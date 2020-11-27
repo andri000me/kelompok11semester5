@@ -14,11 +14,17 @@
         <center>
           <h2 class="content-row-title">Lihat Data Barang</h2>
         </center>
-
+        <?php
+        foreach ($bintang_data as $bintang) {
+        ?>
+          <p><?php echo $bintang->bintang_rating ?></p>
+        <?php
+        }
+        ?>
 
         <div class="flickity  mfp-hover" id="gallery-main">
 
-          <div class="col-sm-3 col-sm-offset-1">
+          <div class="col-sm-4 col-sm-offset-1">
             <?= img([
               'src'    => 'image/barang/' . $foto_barang,
               'style'    => 'width: 200px; height:200px; '
@@ -29,13 +35,8 @@
       </div>
 
 
-      <div class="col-md-3">
-      </div>
       <div class="col-md-5">
         <table class="table table-hover table-responsive">
-
-
-
           <tr>
             <td width="5px"><span class="fa fa-dot-circle"></span></td>
             <td><span>Nama Barang</td>
@@ -127,6 +128,57 @@
 
 
 
+      </div>
+
+      <div class="col-md-6">
+
+        <br>
+        <hr>
+        <center>
+          <h4>Diskusi</h4>
+        </center>
+        <?php
+        foreach ($diskusi_data as $diskusi) {
+        ?>
+
+          <p><b><?php echo $diskusi->nama ?> </b><i><?php echo $diskusi->tgl_diskusi ?></i></p>
+          <p><?php echo $diskusi->isi_diskusi ?></p>
+          <hr>
+          <br>
+        <?php
+        }
+        ?>
+
+        <label for="">Isi Diskusi</label>
+        <textarea name="" id="" cols="80" rows="5"></textarea>
+        <br><br>
+        <a href="" class="btn btn-primary">kirim</a>
+      </div>
+      <div class="col-md-6">
+        <br>
+        <hr>
+        <center>
+          <h4>Rating</h4>
+        </center>
+
+        <?php
+        foreach ($rating_data as $rating) {
+        ?>
+
+          <p><b><?php echo $rating->nama ?> </b><i><?php echo $rating->tgl_rating ?></i></p>
+          <p><?php echo $rating->bintang_rating ?></p>
+          <p><?php echo $rating->isi_rating ?></p>
+          <hr>
+          <br>
+        <?php
+        }
+        ?>
+
+
+        <label for="">Isi Rating</label>
+        <textarea name="" id="" cols="80" rows="5"></textarea>
+        <br><br>
+        <a href="" class="btn btn-primary">kirim</a>
       </div>
     </div>
   </div>
