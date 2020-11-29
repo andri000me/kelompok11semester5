@@ -58,27 +58,37 @@
     border: 2px solid #555555;
   }
 
-  .input-group-btn:last-child>.btn {
-    box-shadow: 1px 2px #888888;
-    height: 50px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
 
   .input-group .form-control:first-child {
-    box-shadow: 1px 2px #888888;
-    width: 1040px;
-    height: 50px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    width: 280px;
 
+
+  }
+
+  @media (min-width: 992px) {
+    .input-group .form-control:first-child {
+      box-shadow: 1px 2px #888888;
+      width: 1040px;
+      height: 50px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+
+
+    }
+
+    .input-group-btn:last-child>.btn {
+      box-shadow: 1px 2px #888888;
+      height: 50px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
 
   }
 </style>
 
 <body>
 
-  <div class="col-xs-12 col-xs-12 content">
+  <div class="col-md-12 col-xs-12 content">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="card">
@@ -86,7 +96,7 @@
 
           </div>
 
-          <div class="col-xs-12 text-center">
+          <div class="col-md-12 text-center">
             <div class="home-category-list__category-grid"></div>
             <form action="<?php echo site_url('home/index'); ?>" class="form-inline" method="get">
               <div class="input-group">

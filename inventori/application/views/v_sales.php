@@ -51,7 +51,7 @@
                   <th>Email</th>
                   <th>Username</th>
 
-                  <th>Level</th>
+
                   <th>Nama User</th>
                   <th>Tanggal Lahir</th>
                   <th>Jenis Kelamin</th>
@@ -72,7 +72,7 @@
                     <td><?php echo $user->email ?></td>
                     <td><?php echo $user->username ?></td>
 
-                    <td><?php echo $user->level ?></td>
+
                     <td><?php echo $user->nama ?></td>
                     <td><?php echo $user->tgl_lahir ?></td>
                     <td><?php echo $user->jenis_kelamin ?></td>

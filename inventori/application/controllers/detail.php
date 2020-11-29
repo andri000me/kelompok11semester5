@@ -38,6 +38,7 @@ class Detail extends CI_Controller
                 'merk' => set_value('merk', $row->merk),
                 'id_supplier' => set_value('id_supplier', $row->id_supplier),
                 'nama_supplier' => set_value('nama_supplier', $row->nama_supplier),
+                'terjual' => set_value('terjual', $row->terjual),
                 'foto_barang' => set_value('foto_barang', $row->foto_barang),
                 'diskusi_data' => $diskusi,
                 'rating_data' => $rating,
@@ -50,5 +51,75 @@ class Detail extends CI_Controller
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('barang'));
         }
+    }
+
+
+    public function diskusi()
+    {
+
+        if ($this->session->userdata('username') != NULL) {
+
+            $data = array(
+                'id_user'    => $this->input->post('id_user'),
+                'id_barang'   => $this->input->post('id_barang'),
+                'isi_diskusi' => $this->input->post('isi_diskusi'),
+            );
+            $id = $this->input->post('id_barang');
+
+            $this->m_detail->insert_diskusi($data);
+            redirect(base_url() . "detail/index/" . $id);
+        } else {
+?>
+            <script type="text/javascript">
+                alert('Anda harus login dulu');
+                window.location = '<?php echo base_url('login'); ?>'
+            </script>
+        <?php
+
+        }
+    }
+
+
+
+    public function rating()
+    {
+        if ($this->session->userdata('username') != NULL) {
+            $data = array(
+                'id_user'    => $this->input->post('id_user'),
+                'id_barang'   => $this->input->post('id_barang'),
+                'isi_rating' => $this->input->post('isi_rating'),
+                'bintang_rating' => $this->input->post('bintang_rating'),
+
+            );
+            $id = $this->input->post('id_barang');
+            $this->m_detail->insert_rating($data);
+            redirect(base_url() . "detail/index/" . $id);
+        } else {
+        ?>
+            <script type="text/javascript">
+                alert('Anda harus login dulu');
+                window.location = '<?php echo base_url('login'); ?>'
+            </script>
+<?php
+
+        }
+    }
+
+
+
+    public function delete_rating($id, $idb)
+    {
+
+        $this->m_detail->delete_rating($id);
+        redirect(base_url() . "detail/index/" . $idb);
+    }
+
+
+
+    public function delete_diskusi($id, $idb)
+    {
+
+        $this->m_detail->delete_diskusi($id);
+        redirect(base_url() . "detail/index/" . $idb);
     }
 }

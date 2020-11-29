@@ -40,6 +40,7 @@
           </li>
           </li>
           <li class="list-group-item"><a href="<?php echo base_url() ?>carousel"><i class="glyphicon glyphicon-picture"></i>Data Slider</a></li>
+          <li class="list-group-item"><a href="<?php echo base_url() ?>komplain" type="submit"><i class="fa fa-history"></i>Data Komplain </a></li>
 
 
           <li class="list-group-item"><a href="<?php echo base_url() ?>login/logout" type="submit" onclick="javasciprt: return confirm('Apa Anda Yakin?')"><i class="glyphicon glyphicon-share"></i>Logout </a></li>
@@ -57,6 +58,7 @@
             <a href="keluar" class="list-group-item">Telah Dikonfirmasi</a>
 
           </li>
+          <li class="list-group-item"><a href="<?php echo base_url() ?>komplain" type="submit"><i class="fa fa-history"></i>Data Komplain </a></li>
           </li>
           <li class="list-group-item"><a href="<?php echo base_url() ?>login/logout" type="submit" onclick="javasciprt: return confirm('Apa Anda Yakin?')"><i class="glyphicon glyphicon-share"></i>Logout </a></li>
 
@@ -97,6 +99,7 @@
           </li>
           <li class="list-group-item"><a href="<?php echo base_url() ?>carousel"><i class="glyphicon glyphicon-picture"></i>Data Slider</a></li>
           <li class="list-group-item"><a href="<?php echo base_url() ?>activity" type="submit"><i class="fa fa-history"></i>Data Activity </a></li>
+          <li class="list-group-item"><a href="<?php echo base_url() ?>komplain" type="submit"><i class="fa fa-history"></i>Data Komplain </a></li>
           <li class="list-group-item"><a href="<?php echo base_url() ?>login/logout" type="submit" onclick="javasciprt: return confirm('Apa Anda Yakin?')"><i class="glyphicon glyphicon-share"></i>Logout </a></li>
 
 

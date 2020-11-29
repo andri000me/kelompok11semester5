@@ -11,6 +11,11 @@ class M_detail extends CI_Model
     public $ids = 'barang.id_barang';
     public $terjual = 'terjual';
     public $order = 'DESC';
+    public $rating = 'rating';
+    public $irating = 'id_rating';
+    public $diskusi = 'diskusi';
+    public $idiskusi = 'id_diskusi';
+
 
 
     function get_by_id($id)
@@ -48,5 +53,30 @@ class M_detail extends CI_Model
         $this->db->from('rating');
         $this->db->where($this->id, $id);
         return $this->db->get()->result();
+    }
+
+
+    function insert_rating($data)
+    {
+        $this->db->insert($this->rating, $data);
+    }
+
+    function insert_diskusi($data)
+    {
+        $this->db->insert($this->diskusi, $data);
+    }
+
+    function delete_rating($id)
+    {
+        $this->db->where($this->irating, $id);
+        $this->db->delete($this->rating);
+    }
+
+
+
+    function delete_diskusi($id)
+    {
+        $this->db->where($this->idiskusi, $id);
+        $this->db->delete($this->diskusi);
     }
 }

@@ -18,7 +18,7 @@ class Login extends CI_Controller
                 //membuat session
                 foreach ($cek_user->result() as $row) {
                     $sess_data['id_user'] = $row->id_user;
-                    $sess_data['nama'] = $row->nama_user;
+                    $sess_data['nama'] = $row->nama;
                     $sess_data['username'] = $row->username;
                     $sess_data['level'] = $row->level;
                     $this->session->set_userdata($sess_data);

@@ -115,8 +115,36 @@
                               <a href="keluardel1/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
 
                             <?php } ?>
-                            <button href="#" data-toggle="modal" data-target="#myModal1<?php echo $keluar->id_keluar ?>" class="btn btn-secondary btn-sm">retur</button>
 
+                            <?php if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') { ?>
+                              <button href="#" data-toggle="modal" data-target="#myModal1<?php echo $keluar->id_keluar ?>" class="btn btn-secondary btn-sm">retur</button>
+                              <button href="#" data-toggle="modal" data-target="#komplain<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm">komplain</button>
+                            <?php } ?>
+
+                            <div id="komplain<?php echo $keluar->id_keluar ?>" class="modal fade" role="dialog">
+                              <div class="modal-dialog">
+                                <form method="POST" action="komplain/isi/<?php echo $keluar->id_keluar ?>">
+                                  <?php $kel = $keluar->id_keluar ?>
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Komplain Barang</h4>
+                                    </div>
+                                    <!-- Modal content-->
+                                    <div class="modal-body">
+                                      <div class="form-group">
+                                        <label for="isi_komplain">isi komplain</label>
+                                        <textarea name="isi_komplain" id="isi_komplain" cols="90" rows="10"></textarea>
+                                      </div>
+                                    </div>
+                                    <div class="modal-footer">
+
+                                      <button class="btn btn-info" id="submit" type="submit">Kirim</button>
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </form>
+                              </div>
+                            </div>
                           </td>
 
 

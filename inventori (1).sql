@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2020 at 02:51 AM
+-- Generation Time: Nov 29, 2020 at 02:36 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -2154,8 +2154,8 @@ CREATE TABLE `diskusi` (
 --
 
 INSERT INTO `diskusi` (`id_diskusi`, `id_barang`, `id_user`, `tgl_diskusi`, `isi_diskusi`) VALUES
-(1, 1, 9, '2020-11-27', 'halo'),
-(2, 1, 8, '2020-11-27', 'hei');
+(14, 1, 1, '2020-11-29', 'adad'),
+(15, 1, 1, '2020-11-29', 'aaa');
 
 -- --------------------------------------------------------
 
@@ -2289,6 +2289,26 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `komplain`
+--
+
+CREATE TABLE `komplain` (
+  `id_komplain` int(11) NOT NULL,
+  `id_keluar` int(11) NOT NULL,
+  `tgl_komplain` date NOT NULL DEFAULT current_timestamp(),
+  `isi_komplain` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `komplain`
+--
+
+INSERT INTO `komplain` (`id_komplain`, `id_keluar`, `tgl_komplain`, `isi_komplain`) VALUES
+(2, 104, '2020-11-29', 'adfad');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `masuk`
 --
 
@@ -2369,8 +2389,9 @@ CREATE TABLE `rating` (
 --
 
 INSERT INTO `rating` (`id_rating`, `id_barang`, `id_user`, `tgl_rating`, `isi_rating`, `bintang_rating`) VALUES
-(1, 1, 1, '2020-11-27', 'bagus', 5),
-(2, 1, 3, '2020-11-27', 'tete', 4);
+(8, 2, 1, '2020-11-27', 'sfg', 1),
+(14, 1, 1, '2020-11-29', 'adsfadsf', 5),
+(15, 1, 1, '2020-11-29', 'adsfdfa', 2);
 
 -- --------------------------------------------------------
 
@@ -2530,6 +2551,13 @@ ALTER TABLE `keluar`
   ADD KEY `fk_membeli` (`id_user`);
 
 --
+-- Indexes for table `komplain`
+--
+ALTER TABLE `komplain`
+  ADD PRIMARY KEY (`id_komplain`),
+  ADD KEY `id_transaksi` (`id_keluar`);
+
+--
 -- Indexes for table `masuk`
 --
 ALTER TABLE `masuk`
@@ -2588,13 +2616,19 @@ ALTER TABLE `cicil`
 -- AUTO_INCREMENT for table `diskusi`
 --
 ALTER TABLE `diskusi`
-  MODIFY `id_diskusi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_diskusi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `keluar`
 --
 ALTER TABLE `keluar`
   MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+
+--
+-- AUTO_INCREMENT for table `komplain`
+--
+ALTER TABLE `komplain`
+  MODIFY `id_komplain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `masuk`
@@ -2606,7 +2640,7 @@ ALTER TABLE `masuk`
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `id_rating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_rating` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `supplier`
@@ -2662,6 +2696,12 @@ ALTER TABLE `diskusi`
 --
 ALTER TABLE `keluar`
   ADD CONSTRAINT `fk_membeli` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+
+--
+-- Constraints for table `komplain`
+--
+ALTER TABLE `komplain`
+  ADD CONSTRAINT `komplain_ibfk_1` FOREIGN KEY (`id_keluar`) REFERENCES `keluar` (`id_keluar`);
 
 --
 -- Constraints for table `masuk`
