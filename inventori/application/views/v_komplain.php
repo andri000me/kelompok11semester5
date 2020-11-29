@@ -73,8 +73,6 @@
 
                     <td>
                       <?php
-                      echo anchor(site_url('komplain/balas/' . $komplain->id_komplain), 'Balas', 'class="btn btn-primary btn-sm"');
-                      echo '  ';
                       echo anchor(site_url('komplain/delete/' . $komplain->id_komplain), 'Hapus', 'class="btn btn-danger btn-sm", onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"');
                       ?>
                     </td>

@@ -143,7 +143,7 @@
                                     <div class="modal-body">
                                       <div class="form-group">
                                         <label for="isi_komplain">isi komplain</label>
-                                        <textarea name="isi_komplain" id="isi_komplain" cols="90" rows="10"></textarea>
+                                        <textarea name="isi_komplain" id="isi_komplain" required cols="90" rows="10"></textarea>
                                       </div>
                                     </div>
                                     <div class="modal-footer">

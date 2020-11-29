@@ -1,14 +1,17 @@
 <style>
   .thumbnail {
-    border: 2px solid #888888;
+    border: 1px solid rgba(136, 136, 136, 0.5);
+    box-shadow: 1px 2px rgba(136, 136, 136, 0.5);
   }
 
   .thumbnail img {
-    border: 2px solid #888888;
+    border: 1px rgba(136, 136, 136, 0.5);
+
   }
 
   .button {
-    border: 2px solid #888888;
+    border: 2px solid rgba(136, 136, 136, 0.5);
+
   }
 
   .stepper .stepper-arrow {
