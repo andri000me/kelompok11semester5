@@ -5,12 +5,10 @@ if (!defined('BASEPATH'))
 
 class M_activity extends CI_Model
 {
-    //deklarasi tabel
     public $table = 'activity';
     public $id = 'id_activity';
     public $order = 'DESC';
 
-    //untuk tampilan home
     public function all()
     {
         $hasil = $this->db->get('activity');
@@ -21,8 +19,6 @@ class M_activity extends CI_Model
         }
     }
 
-
-    //menghitung rows untuk pencarian dan dashboard
     public function total_rows()
     {
         $this->db->like('id_activity');
@@ -32,7 +28,6 @@ class M_activity extends CI_Model
         return $this->db->count_all_results();
     }
 
-    // untuk limit halaman dan pencarian
     function get_limit_data()
     {
         $this->db->order_by($this->id, $this->order);
@@ -42,27 +37,23 @@ class M_activity extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
-    // insert data
     function insert($data)
     {
         $this->db->insert($this->table, $data);
     }
 
-    // update data
     function update($id, $data)
     {
         $this->db->where($this->id, $id);
         $this->db->update($this->table, $data);
     }
 
-    // delete data
     function delete($id)
     {
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
     }
 
-    // memanggil id yang akan digunakan untuk edit dan delete
     function get_by_id($id)
     {
         $this->db->where($this->id, $id);

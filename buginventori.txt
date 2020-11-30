@@ -1,3 +1,4 @@
 Bug : 
 1. Alert pada saat transaksi di keranjang tidak ada.
 2. tampilan diskusi pada home offset.
+3. 
