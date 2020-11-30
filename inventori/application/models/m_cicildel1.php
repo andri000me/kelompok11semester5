@@ -6,8 +6,6 @@ if (!defined('BASEPATH'))
 class M_cicildel1 extends CI_Model
 {
 
-
-
     public function total_rows()
     {
         if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') {
