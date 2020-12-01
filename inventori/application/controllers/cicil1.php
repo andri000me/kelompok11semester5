@@ -3,9 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Cicil1 extends CI_Controller
 {
-
-
-	//load library, helper, dan model
 	function __construct()
 	{
 		parent::__construct();
@@ -15,13 +12,11 @@ class Cicil1 extends CI_Controller
 		$this->load->model('m_cicil1');
 		$this->load->library('cetak_pdf');
 	}
-	//menampilkan barang pada home
+
 	public function index()
 	{
 		$this->load->view('v_header');
 		$this->load->view('v_sidebar');
-
-
 
 		$config['total_rows'] = $this->m_cicil1->total_rows();
 		$keluar = $this->m_cicil1->get_limit_data();
@@ -31,21 +26,14 @@ class Cicil1 extends CI_Controller
 			'keluar_data' => $keluar,
 
 			'total_rows' => $config['total_rows'],
-
 		);
 		$this->load->view('v_cicil1', $data);
 	}
 
-
-
 	public function update_action($kode_penjualan)
 	{
-		//jika gambar tidak diinput oleh user 
-
-		//masukkan data ke database
 		$data = array(
 			'status' => "2"
-
 		);
 
 		$this->db->where('id_keluar', $kode_penjualan);
@@ -54,13 +42,11 @@ class Cicil1 extends CI_Controller
 		redirect(site_url('cicil1'));
 	}
 
-
 	public function hapus_penjualan($id)
 	{
 
 		$data = array(
 			'del' => "1"
-
 		);
 
 		$this->db->where('id_keluar', $id);
@@ -72,12 +58,8 @@ class Cicil1 extends CI_Controller
 
 	public function status($id)
 	{
-		//jika gambar tidak diinput oleh user 
-
-		//masukkan data ke database
 		$data = array(
 			'status' => "1"
-
 		);
 
 		$this->db->where('id_keluar', $id);
@@ -89,12 +71,8 @@ class Cicil1 extends CI_Controller
 
 	public function statusall()
 	{
-		//jika gambar tidak diinput oleh user 
-
-		//masukkan data ke database
 		$data = array(
 			'status' => "1"
-
 		);
 
 		$this->db->where('status', 0);
@@ -105,8 +83,6 @@ class Cicil1 extends CI_Controller
 
 	public function simpancicil()
 	{
-
-
 		$id = $this->input->post('id_keluar');
 		$cicil = $this->input->post('cicil');
 		$periode = $this->input->post('periode');

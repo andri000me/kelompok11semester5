@@ -1,8 +1,6 @@
 <?php
 class Barang extends CI_Controller
 {
-
-    //load library, helper, dan model
     function __construct()
     {
         parent::__construct();
@@ -16,35 +14,26 @@ class Barang extends CI_Controller
         $this->load->library('cetak_pdf');
     }
 
-    //fungsi menampilkan data barang dan halaman
     public function index()
     {
-        //menampilkan header dan sidebar
         $this->load->view('v_header');
         $this->load->view('v_sidebar');
-
-        //konfigurasi banyak row dalam satu halaman
 
         $config['total_rows'] = $this->m_barang->total_rows();
         $barang = $this->m_barang->get_limit_data();
 
-        //menampilkan data
         $data = array(
             'barang_data' => $barang,
             'total_rows' => $config['total_rows'],
         );
-        //menampilkan view barang
         $this->load->view('v_barang', $data);
     }
 
-    //untuk menampilkan form insert data
     public function create()
     {
-        //menampilkan header dan sidebar
         $this->load->view('v_header');
         $this->load->view('v_sidebar');
 
-        //memanggil value dari form yang diinputkan user
         $data = array(
             'button' => 'Create',
             'action' => site_url('barang/create_action'),
@@ -58,15 +47,11 @@ class Barang extends CI_Controller
             'id_supplier' => set_value('id_supplier'),
 
         );
-        //menampilkan view tambah barang
         $this->load->view('v_barang1', $data);
     }
 
-    //fungsi untuk insert ke database
     public function create_action()
     {
-        //insert dan konfigurasi gambar
-
         if (empty($_FILES["foto_barang"]["name"])) {
             $data = array(
                 'nama_barang' => $this->input->post('nama_barang', TRUE),
@@ -101,7 +86,6 @@ class Barang extends CI_Controller
             $result = array('gambar' => $result1);
             $dfile = $result['gambar']['file_name'];
 
-            //memasukkan data ke database
             $data = array(
                 'nama_barang' => $this->input->post('nama_barang', TRUE),
                 'harga' => $this->input->post('harga', TRUE),
@@ -123,14 +107,11 @@ class Barang extends CI_Controller
         }
     }
 
-    //untuk menampilkan data pada form edit
     public function update($id)
     {
-        //menampilkan header dan sidebar
         $this->load->view('v_header');
         $this->load->view('v_sidebar');
         $row = $this->m_barang->get_by_id($id);
-        //menampilkan data ke dalam form
         if ($row) {
             $data = array(
                 'button' => 'Update',
@@ -145,17 +126,14 @@ class Barang extends CI_Controller
                 'id_supplier' => set_value('id_supplier', $row->id_supplier),
 
             );
-            //menampilkan form edit data
             $this->load->view('v_barang2', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('barang'));
         }
     }
-    //fungsi update data ke database
     public function update_action()
     {
-        //jika gambar tidak diinput oleh user 
         if (empty($_FILES["foto_barang"]["name"])) {
             $data = array(
                 'nama_barang' => $this->input->post('nama_barang', TRUE),
@@ -173,7 +151,6 @@ class Barang extends CI_Controller
                 window.location = '<?php echo base_url('barang'); ?>'
             </script>
         <?php
-            //jika gambar diinput oleh user
         } else {
             $nmfile = "barang_" . time();
             $config['upload_path'] = './image/barang';
@@ -186,7 +163,6 @@ class Barang extends CI_Controller
             $result1 = $this->upload->data();
             $result = array('gambar' => $result1);
             $dfile = $result['gambar']['file_name'];
-            //masukkan data ke database
             $data = array(
                 'nama_barang' => $this->input->post('nama_barang', TRUE),
                 'harga' => $this->input->post('harga', TRUE),
@@ -231,9 +207,6 @@ class Barang extends CI_Controller
         $pdf->Cell(15, 6, 'Stok', 1, 0, 'C');
         $pdf->Cell(15, 6, 'Terjual', 1, 1, 'C');
 
-
-
-
         $pdf->SetFont('Arial', '', 10);
         $barang = $this->db->query("SELECT * FROM barang inner join supplier on barang.id_supplier=supplier.id_supplier where barang.del='0'")->result();
         $no = 1;
@@ -255,9 +228,6 @@ class Barang extends CI_Controller
 
     public function delete($id)
     {
-        //jika gambar tidak diinput oleh user 
-
-        //masukkan data ke database
         $data = array(
             'del' => "1"
 

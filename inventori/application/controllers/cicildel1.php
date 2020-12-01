@@ -3,9 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Cicildel1 extends CI_Controller
 {
-
-
-	//load library, helper, dan model
 	function __construct()
 	{
 		parent::__construct();
@@ -15,14 +12,10 @@ class Cicildel1 extends CI_Controller
 		$this->load->model('m_cicildel1');
 		$this->load->library('cetak_pdf');
 	}
-	//menampilkan barang pada home
 	public function index()
 	{
 		$this->load->view('v_header');
 		$this->load->view('v_sidebar');
-
-
-
 
 		$config['total_rows'] = $this->m_cicildel1->total_rows();
 		$keluar2 = $this->m_cicildel1->get_limit_data();
@@ -32,18 +25,12 @@ class Cicildel1 extends CI_Controller
 			'keluar_data2' => $keluar2,
 
 			'total_rows' => $config['total_rows'],
-
 		);
 		$this->load->view('v_cicildel1', $data);
 	}
 
-
-
 	public function update_action($kode_penjualan)
 	{
-		//jika gambar tidak diinput oleh user 
-
-		//masukkan data ke database
 		$data = array(
 			'status' => "1"
 
@@ -55,11 +42,8 @@ class Cicildel1 extends CI_Controller
 		redirect(site_url('cicildel1'));
 	}
 
-
-
 	public function hapus_penjualan1($kode_penjualan)
 	{
-
 		$this->db->where('id_keluar', $kode_penjualan);
 		$this->db->delete('keluar');
 		$this->db->where('id_keluar', $kode_penjualan);
@@ -67,15 +51,11 @@ class Cicildel1 extends CI_Controller
 		redirect('cicildel1');
 	}
 
-
-
-
 	public function hapus_penjualan($id)
 	{
 
 		$data = array(
 			'del' => "0"
-
 		);
 
 		$this->db->where('id_keluar', $id);
@@ -87,12 +67,8 @@ class Cicildel1 extends CI_Controller
 
 	public function status($id)
 	{
-		//jika gambar tidak diinput oleh user 
-
-		//masukkan data ke database
 		$data = array(
 			'status' => "1"
-
 		);
 
 		$this->db->where('id_keluar', $id);
@@ -103,9 +79,6 @@ class Cicildel1 extends CI_Controller
 
 	public function restore($id)
 	{
-		//jika gambar tidak diinput oleh user 
-
-		//masukkan data ke database
 		$data = array(
 			'del' => "0"
 
@@ -120,9 +93,6 @@ class Cicildel1 extends CI_Controller
 
 	public function statusall()
 	{
-		//jika gambar tidak diinput oleh user 
-
-		//masukkan data ke database
 		$data = array(
 			'status' => "1"
 

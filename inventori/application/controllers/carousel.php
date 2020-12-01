@@ -1,8 +1,6 @@
 <?php
 class Carousel extends CI_Controller
 {
-
-    //load library, helper, dan model
     function __construct()
     {
         parent::__construct();
@@ -16,15 +14,12 @@ class Carousel extends CI_Controller
         $this->load->library('cetak_pdf');
     }
 
-    //fungsi menampilkan data barang dan halaman
     public function index()
     {
-        //menampilkan header dan sidebar
         $this->load->view('v_header');
         $this->load->view('v_sidebar');
-        //konfigurasi url saat klik halaman
-        $q = urldecode($this->input->get('q', TRUE)); //search 
-        $per_page = intval($this->input->get('per_page')); //membuat halaman baru
+        $q = urldecode($this->input->get('q', TRUE));
+        $per_page = intval($this->input->get('per_page'));
         if ($q <> '') {
             $config['base_url'] = base_url() . 'carousel/?q=' . urlencode($q);
             $config['first_url'] = base_url() . 'carousel/?q=' . urlencode($q);
@@ -32,14 +27,12 @@ class Carousel extends CI_Controller
             $config['base_url'] = base_url() . 'carousel';
             $config['first_url'] = base_url() . 'carousel';
         }
-        //konfigurasi banyak row dalam satu halaman
         $config['per_page'] = 15;
         $config['page_query_string'] = TRUE;
         $config['total_rows'] = $this->m_carousel->total_rows($q);
         $carousel = $this->m_carousel->get_limit_data($config['per_page'], $per_page, $q);
         $this->load->library('pagination');
         $this->pagination->initialize($config);
-        //menampilkan data
         $data = array(
             'carousel_data' => $carousel,
             'q' => $q,
@@ -47,18 +40,14 @@ class Carousel extends CI_Controller
             'total_rows' => $config['total_rows'],
             'per_page' => $per_page,
         );
-        //menampilkan view barang
         $this->load->view('v_carousel1', $data);
     }
 
-    //untuk menampilkan form insert data
     public function create()
     {
-        //menampilkan header dan sidebar
         $this->load->view('v_header');
         $this->load->view('v_sidebar');
 
-        //memanggil value dari form yang diinputkan user
         $data = array(
             'button' => 'Create',
             'action' => site_url('carousel/create_action'),
@@ -67,15 +56,11 @@ class Carousel extends CI_Controller
             'isi' => set_value('isi'),
 
         );
-        //menampilkan view tambah barang
         $this->load->view('v_carousel2', $data);
     }
 
-    //fungsi untuk insert ke database
     public function create_action()
     {
-        //insert dan konfigurasi gambar
-
         if (empty($_FILES["gambar"]["name"])) {
             $data = array(
                 'judul' => $this->input->post('judul', TRUE),
@@ -91,7 +76,6 @@ class Carousel extends CI_Controller
             </script>
         <?php
 
-
         } else {
             $nmfile = "carousel_" . time();
             $config['upload_path'] = './image/carousel';
@@ -105,7 +89,6 @@ class Carousel extends CI_Controller
             $result = array('gambar' => $result1);
             $dfile = $result['gambar']['file_name'];
 
-            //memasukkan data ke database
             $data = array(
                 'judul' => $this->input->post('judul', TRUE),
                 'isi' => $this->input->post('isi', TRUE),
@@ -122,14 +105,11 @@ class Carousel extends CI_Controller
         }
     }
 
-    //untuk menampilkan data pada form edit
     public function update($id)
     {
-        //menampilkan header dan sidebar
         $this->load->view('v_header');
         $this->load->view('v_sidebar');
         $row = $this->m_carousel->get_by_id($id);
-        //menampilkan data ke dalam form
         if ($row) {
             $data = array(
                 'button' => 'Update',
@@ -139,17 +119,14 @@ class Carousel extends CI_Controller
                 'isi' => set_value('isi', $row->isi),
 
             );
-            //menampilkan form edit data
             $this->load->view('v_carousel3', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('carousel'));
         }
     }
-    //fungsi update data ke database
     public function update_action()
     {
-        //jika gambar tidak diinput oleh user 
         if (empty($_FILES["gambar"]["name"])) {
             $data = array(
                 'judul' => $this->input->post('judul', TRUE),
@@ -163,7 +140,6 @@ class Carousel extends CI_Controller
                 window.location = '<?php echo base_url('carousel'); ?>'
             </script>
         <?php
-            //jika gambar diinput oleh user
         } else {
             $nmfile = "carousel_" . time();
             $config['upload_path'] = './image/carousel';
@@ -176,7 +152,6 @@ class Carousel extends CI_Controller
             $result1 = $this->upload->data();
             $result = array('gambar' => $result1);
             $dfile = $result['gambar']['file_name'];
-            //masukkan data ke database
             $data = array(
                 'judul' => $this->input->post('judul', TRUE),
                 'isi' => $this->input->post('isi', TRUE),
@@ -192,8 +167,6 @@ class Carousel extends CI_Controller
 <?php
         }
     }
-
-
 
     public function delete($id)
     {
